@@ -19,7 +19,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 .AllChains-overlay {
   position: fixed;
   z-index: 19;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(12, 16, 20, 0.75);
+  backdrop-filter: blur(8px);
   left: 0;
   right: 0;
   top: 0;
@@ -32,10 +33,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 .AllChains-content {
   max-height: calc(100vh - 2em);
   max-width: calc(100vw - 2em);
-  border-radius: 4px;
+  border-radius: 8px;
   width: 600px;
   overflow: auto;
-  background-color: white;
+  background: rgba(61, 60, 68, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
 }
@@ -45,15 +48,17 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   display: flex;
   align-items: center;
   padding: 0.5em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .AllChains-controls input {
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   padding: 0.5em;
   flex-grow: 1;
   min-width: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-primary);
 }
 
 .AllChains-controls-sortby {
@@ -62,15 +67,17 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   border-radius: 4px;
   cursor: pointer;
   user-select: none;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 0.9em;
-  border: 1px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
 }
 
 .AllChains-controls-sortby-active {
-  background-color: #e6007a;
-  border-color: #e6007a;
-  color: white;
+  background: var(--gradient-secondary);
+  border-color: transparent;
+  color: var(--color-bg-primary);
 }
 
 .AllChains-chains {
@@ -81,23 +88,32 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .AllChains-chain {
   padding: 10px 10px;
-  background: rgb(220, 220, 220);
-  color: black;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
   display: inline-flex;
   margin-right: 0.5em;
   margin-bottom: 0.5em;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.8em;
-  font-weight: bold;
+  font-weight: 500;
   position: relative;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.AllChains-chain:hover {
+  background: rgba(237, 76, 206, 0.2);
+  border-color: rgba(237, 76, 206, 0.3);
 }
 
 .AllChains-chain-highlighted-text {
-  background-color: yellow;
-  color: black;
+  background: var(--gradient-secondary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .AllChains-node-count {
@@ -105,20 +121,21 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   align-items: center;
   justify-content: center;
   border-radius: 1em;
-  background: #8c8787;
-  color: #fff;
-  font-weight: normal;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-primary);
+  font-weight: 500;
   font-size: 0.9em;
   margin-left: 0.5em;
   padding: 0.3em 0.5em;
 }
 
 .AllChains-chain-selected {
-  background: #e6007a;
+  background: var(--gradient-primary);
   color: white;
+  border-color: transparent;
 }
 
 .AllChains-chain-selected .AllChains-node-count {
   background: white;
-  color: #e6007a;
+  color: var(--color-quantus-blue);
 }

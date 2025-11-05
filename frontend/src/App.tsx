@@ -46,7 +46,7 @@ export default class App extends React.Component {
   constructor(props: Record<string, unknown>) {
     super(props);
 
-    //todo! Check what's important to set to true, false
+    // TODO: Review which settings should default to true/false
     this.settings = new PersistentObject(
       'settings',
       {

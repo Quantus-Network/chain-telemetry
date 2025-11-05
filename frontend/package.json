@@ -1,9 +1,9 @@
 {
-  "name": "@dotstats/frontend",
+  "name": "@quantus/telemetry-frontend",
   "version": "0.2.1",
-  "author": "Parity Technologies Ltd. <admin@parity.io>",
+  "author": "Quantus",
   "license": "GPL-3.0",
-  "description": "Polkadot Telemetry frontend",
+  "description": "Quantus Telemetry frontend - Fork of Substrate Telemetry",
   "scripts": {
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",

@@ -1,17 +1,8 @@
 # Quantus Telemetry - Docker Compose Configuration
-# 
-# This is a symbolic link / default file.
-# Use the appropriate file for your system:
-#
-# - docker-compose.x86.yml    - For x86-64/AMD64 Linux systems
-# - docker-compose.arm64.yml  - For ARM64/Apple Silicon (M1/M2/M3)
-#
-# Usage:
-#   docker compose -f docker-compose.x86.yml up --build
-#   docker compose -f docker-compose.arm64.yml up --build
-
-# This file defaults to ARM64 configuration (for Apple Silicon)
-# If you're on x86-64 Linux, use docker-compose.x86.yml instead
+# For x86-64 / AMD64 Linux systems
+# Frontend: http://localhost:3000
+# Backend Core: ws://localhost:8000/feed
+# Backend Shard: ws://localhost:8001/submit
 
 services:
   telemetry-frontend:
@@ -36,7 +27,6 @@ services:
 
   telemetry-backend-shard:
     container_name: quantus-telemetry-shard
-    platform: linux/amd64
     build:
       dockerfile: Dockerfile
       context: ./backend/
@@ -56,7 +46,6 @@ services:
 
   telemetry-backend-core:
     container_name: quantus-telemetry-core
-    platform: linux/amd64
     build:
       dockerfile: Dockerfile
       context: ./backend/
@@ -70,3 +59,4 @@ services:
     expose:
       - 8000
     restart: unless-stopped
+

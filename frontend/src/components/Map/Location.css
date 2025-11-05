@@ -20,7 +20,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   width: 6px;
   height: 6px;
   background: transparent;
-  border: 2px solid #666;
+  border: 2px solid rgba(212, 211, 224, 0.4);
   border-radius: 6px;
   margin-left: -4px;
   margin-top: -4px;
@@ -38,7 +38,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   margin-left: -1px;
   margin-top: -1px;
   z-index: 1;
-  background: #bbb;
+  background: var(--color-text-secondary);
   border: none;
 }
 
@@ -49,16 +49,17 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 }
 
 .Location-odd {
-  border-color: #bbb;
+  border-color: var(--color-text-secondary);
 }
 
 .Location-synced {
   z-index: 3;
-  border-color: #e6007a;
+  border-color: var(--color-quantus-pink);
+  box-shadow: 0 0 8px var(--color-quantus-pink);
 }
 
 .Location-synced .Location-ping {
-  border: 1px solid #fff;
+  border: 1px solid var(--color-quantus-pink);
   border-radius: 30px;
   display: block;
   animation: ping 1s forwards;
@@ -66,16 +67,20 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .Location:hover {
   z-index: 4;
-  border-color: #fff;
+  border-color: var(--color-text-primary);
+  box-shadow: 0 0 8px var(--color-text-primary);
 }
 
 .Location-details {
   min-width: 335px;
   position: absolute;
-  font-family: monospace, sans-serif;
-  background: #222;
-  color: #fff;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+  font-family: 'Prompt', monospace, sans-serif;
+  background: rgba(61, 60, 68, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border-collapse: collapse;
 }
 
@@ -121,7 +126,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
     width: 6px;
     height: 6px;
     border-width: 1px;
-    border-color: rgba(255, 255, 255, 1);
+    border-color: rgba(237, 76, 206, 1);
   }
 
   to {
@@ -130,7 +135,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
     width: 40px;
     height: 40px;
     border-width: 1px;
-    border-color: rgba(255, 255, 255, 0);
+    border-color: rgba(237, 76, 206, 0);
   }
 }
 

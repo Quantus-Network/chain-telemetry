@@ -1,11 +1,18 @@
 ![Frontend](https://github.com/paritytech/substrate-telemetry/workflows/Frontend%20CI/badge.svg)
 ![Backend](https://github.com/paritytech/substrate-telemetry/workflows/Backend%20CI/badge.svg)
 
-# Polkadot Telemetry
+# Quantus Telemetry
 
 ## Overview
 
-This repository contains the backend ingestion server for Substrate Telemetry (which itself is comprised of two binaries; `telemetry_shard` and `telemetry_core`) as well as the Frontend you typically see running at [telemetry.polkadot.io](https://telemetry.polkadot.io/).
+This is a fork of [Substrate Telemetry](https://github.com/paritytech/substrate-telemetry), rebranded for Quantus. This repository contains the backend ingestion server for Substrate Telemetry (which itself is comprised of two binaries; `telemetry_shard` and `telemetry_core`) as well as the frontend with complete Quantus branding.
+
+### Quick Links
+- 🎨 [Quantus Rebrand Documentation](./QUANTUS_REBRAND.md)
+- 🐳 [Docker Quick Start Guide](./DOCKER_QUICKSTART.md)
+- 📦 [Docker Compose Files Explanation](./DOCKER_COMPOSE_README.md)
+- 📊 [Prometheus Metrics](./PROMETHEUS_METRICS.md)
+- 🔗 [Quantus Network GitHub](https://github.com/Quantus-Network)
 
 The backend is a Rust project and the frontend is React/Typescript project.
 

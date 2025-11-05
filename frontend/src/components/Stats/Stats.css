@@ -24,20 +24,22 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .Stats-category {
   text-align: left;
-  background-color: #fff;
+  background: rgba(61, 60, 68, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   margin-bottom: 2.5rem;
   padding: 1rem;
 }
 
 .Stats-category table {
-  color: #000;
+  color: var(--color-text-primary);
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
 }
 
 .Stats-category tr:nth-child(even) {
-  background-color: #eee;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .Stats-percent {
@@ -51,7 +53,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   width: 6.5em;
   text-align: right;
   padding-right: 1.5rem;
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .Stats-value {
