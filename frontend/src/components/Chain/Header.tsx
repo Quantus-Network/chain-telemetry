@@ -28,6 +28,7 @@ import listIcon from '../../icons/list-alt-regular.svg';
 import worldIcon from '../../icons/location.svg';
 import settingsIcon from '../../icons/settings.svg';
 import statsIcon from '../../icons/graph.svg';
+import quantusLogo from '../../../assets/quantus-logo.svg';
 
 import './Header.css';
 
@@ -57,6 +58,10 @@ export class Header extends React.Component<HeaderProps> {
 
     return (
       <div className="Header">
+        <div className="Header-logo">
+          <img src={quantusLogo} alt="Quantus" />
+          <span>Quantus Telemetry</span>
+        </div>
         <Tile icon={blockIcon} title="Best Block">
           #{formatNumber(best)}
         </Tile>

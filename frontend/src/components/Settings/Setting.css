@@ -17,14 +17,19 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
 .Setting {
-  color: #635f5f;
+  color: var(--color-text-secondary);
   padding: 0;
   margin: 0 0 8px 0;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.Setting:hover {
+  color: var(--color-text-primary);
 }
 
 .Setting-on {
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .Setting .Icon {
@@ -38,13 +43,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   display: block;
   float: right;
   position: relative;
-  background: #444;
-  transition: background-color 0.15s linear, border-color 0.15s linear;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.2s ease;
 }
 
 .Setting-on .Setting-switch {
-  background: #e6007a;
-  border-color: #e6007a;
+  background: var(--gradient-secondary);
 }
 
 .Setting-knob {
@@ -55,8 +59,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   position: absolute;
   left: 0;
   top: 0;
-  background: #fff;
-  transition: left 0.15s ease-in-out;
+  background: var(--color-text-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: left 0.2s ease-in-out;
 }
 
 .Setting-on .Setting-knob {

@@ -17,23 +17,29 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
 .THead {
-  background: #393838;
+  background: rgba(61, 60, 68, 0.5);
 }
 
 .THeadCell {
   text-align: left;
   padding: 8px 13px;
   height: 23px;
+  transition: all 0.2s ease;
 }
 
 .THeadCell-sortable {
   cursor: pointer;
 }
 
+.THeadCell-sortable:hover {
+  background: rgba(237, 76, 206, 0.2);
+}
+
 .THeadCell-sorted {
   cursor: pointer;
-  background: #e6007a;
-  color: #fff;
+  background: var(--gradient-secondary);
+  color: var(--color-bg-primary);
+  font-weight: 500;
 }
 
 .THeadCell-container {

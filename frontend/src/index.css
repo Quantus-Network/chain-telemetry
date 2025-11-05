@@ -16,18 +16,50 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   /* Use "standard"/common sense heights/widths (ie they include padding+border) */
   box-sizing: border-box;
 }
 
+:root {
+  /* Quantus Colors */
+  --color-bg-primary: #0c1014;
+  --color-quantus-pink: #ed4cce;
+  --color-quantus-blue: #0000ff;
+  --color-quantus-dark-blue: #1f1fa3;
+  --color-quantus-yellow: #ffe91f;
+  --color-text-primary: #f4f6f9;
+  --color-text-secondary: #d4d3e0;
+  
+  /* Quantus Gradients */
+  --gradient-primary: linear-gradient(
+    12deg,
+    var(--color-quantus-pink) 8.23%,
+    var(--color-quantus-blue) 56.37%,
+    var(--color-quantus-dark-blue) 85.85%
+  );
+  --gradient-secondary: linear-gradient(
+    180deg,
+    var(--color-quantus-pink) 28.03%,
+    var(--color-quantus-yellow) 100%
+  );
+  --gradient-accent: linear-gradient(
+    47deg,
+    #00f 13.42%,
+    #ed4cce 44.7%,
+    #ffe91f 81.08%
+  );
+}
+
 html,
 body {
-  background-color: #2c2b2b;
+  background-color: var(--color-bg-primary);
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Prompt', sans-serif;
 }

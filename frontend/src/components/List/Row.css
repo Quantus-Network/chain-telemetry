@@ -17,32 +17,32 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
 .Row {
-  color: #b5aeae;
+  color: var(--color-text-secondary);
   cursor: pointer;
 }
 
 .Row-synced {
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .Row-pinned td:first-child {
-  border-left: 3px solid #e6007a;
+  border-left: 3px solid var(--color-quantus-pink);
   padding-left: 10px;
 }
 
 .Row-pinned td:last-child {
-  border-right: 3px solid #e6007a;
+  border-right: 3px solid var(--color-quantus-pink);
   padding-right: 10px;
 }
 
 .Row-pinned.Row-synced {
-  color: #e6007a;
+  color: var(--color-quantus-pink);
 }
 
 .Row-stale {
-  color: #555;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .Row:hover {
-  background-color: #1e1e1e;
+  background: rgba(237, 76, 206, 0.1);
 }
