@@ -11,6 +11,7 @@ This is a fork of [Substrate Telemetry](https://github.com/paritytech/substrate-
 - 🎨 [Quantus Rebrand Documentation](./QUANTUS_REBRAND.md)
 - 🐳 [Docker Quick Start Guide](./DOCKER_QUICKSTART.md)
 - 📦 [Docker Compose Files Explanation](./DOCKER_COMPOSE_README.md)
+- 📊 [Prometheus Metrics](./PROMETHEUS_METRICS.md)
 - 🔗 [Quantus Network GitHub](https://github.com/Quantus-Network)
 
 The backend is a Rust project and the frontend is React/Typescript project.

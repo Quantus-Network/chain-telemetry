@@ -44,6 +44,7 @@ All documentation is in English:
 - ✅ `DOCKER_QUICKSTART.md` - Quick start guide
 - ✅ `DOCKER_COMPOSE_README.md` - Docker compose files explanation
 - ✅ `QUANTUS_REBRAND.md` - Complete rebrand documentation
+- ✅ `PROMETHEUS_METRICS.md` - Prometheus metrics documentation
 - ✅ `README.md` - Updated with Quantus information
 - ✅ `CHANGES_SUMMARY.md` - This file
 
@@ -75,6 +76,11 @@ All documentation is in English:
 - Multiple chain support
 - WebSocket communication
 
+✅ Prometheus metrics:
+- Exposed at `http://localhost:8000/metrics`
+- 9 different metrics tracking connections, messages, and chains
+- Ready for Grafana/Prometheus integration
+
 ✅ Docker deployment:
 - Works on Apple Silicon (M1/M2/M3)
 - Works on x86-64 Linux
@@ -86,12 +92,14 @@ All documentation is in English:
 ```bash
 docker compose up --build
 # Access at http://localhost:3000
+# Metrics at http://localhost:8000/metrics
 ```
 
 **Quick Start (x86-64 Linux):**
 ```bash
 docker compose -f docker-compose.x86.yml up --build
 # Access at http://localhost:3000
+# Metrics at http://localhost:8000/metrics
 ```
 
 ### Repository Structure

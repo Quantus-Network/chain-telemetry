@@ -150,6 +150,7 @@ This is normal! You need to connect a Substrate/Polkadot node with the flag:
 - Frontend: http://localhost:3000
 - Backend Core WebSocket: ws://localhost:8000/feed
 - Backend Shard (for nodes): ws://localhost:8001/submit
+- Prometheus Metrics: http://localhost:8000/metrics
 
 ## 🎨 Quantus Branding
 
