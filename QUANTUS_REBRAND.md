@@ -53,7 +53,7 @@ This document outlines the rebranding changes made to transform the Substrate/Po
 ### 4. Assets
 - Logo (header): `frontend/assets/quantus-logo-n.svg` (solid orange `#FF6B35` mark on dark `#0E0E0E`, matches quantus.com)
 - Legacy logo: `frontend/assets/quantus-logo.svg` (Q mark with orange gradients)
-- Favicon: `frontend/assets/favicon.svg` (Q mark with orange gradients)
+- Favicon source: `frontend/assets/favicon.svg`; production HTML uses `/quantus-favicon.svg` so browsers fetch a fresh tab icon (many ignore `?v=` on favicons). `/favicon.svg` is still emitted as a copy for direct links and defaults.
 
 ### 5. Package Information
 - Updated `frontend/package.json`:
