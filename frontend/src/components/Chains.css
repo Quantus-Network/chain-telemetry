@@ -32,8 +32,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 0px,
-    var(--color-quantus-blue) 30px,
-    var(--color-quantus-dark-blue) 100%
+    var(--color-quantus-orange-dark) 30px,
+    var(--color-quantus-orange) 100%
   );
   z-index: 1;
   padding-left: 34px;
@@ -87,7 +87,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   display: inline-block;
   border-radius: 20px;
   background: var(--color-text-primary);
-  color: var(--color-quantus-blue);
+  color: var(--color-quantus-orange);
   font-size: 0.9em;
   margin-left: 0.5em;
   padding: 0.3em 0.5em;

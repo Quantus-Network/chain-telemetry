@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 .AllChains-overlay {
   position: fixed;
   z-index: 19;
-  background: rgba(12, 16, 20, 0.75);
+  background: rgba(14, 14, 14, 0.75);
   backdrop-filter: blur(8px);
   left: 0;
   right: 0;
@@ -36,9 +36,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   border-radius: 8px;
   width: 600px;
   overflow: auto;
-  background: rgba(61, 60, 68, 0.95);
+  background: rgba(26, 26, 26, 0.97);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
 }
@@ -48,7 +48,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   display: flex;
   align-items: center;
   padding: 0.5em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .AllChains-controls input {
@@ -105,8 +105,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 }
 
 .AllChains-chain:hover {
-  background: rgba(237, 76, 206, 0.2);
-  border-color: rgba(237, 76, 206, 0.3);
+  background: rgba(255, 107, 53, 0.15);
+  border-color: rgba(255, 107, 53, 0.25);
 }
 
 .AllChains-chain-highlighted-text {
@@ -137,5 +137,5 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .AllChains-chain-selected .AllChains-node-count {
   background: white;
-  color: var(--color-quantus-blue);
+  color: var(--color-quantus-orange-dark);
 }

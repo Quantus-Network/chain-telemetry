@@ -33,7 +33,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 }
 
 .Chain-Tab:hover {
-  background: rgba(237, 76, 206, 0.2);
+  background: rgba(255, 107, 53, 0.15);
   color: var(--color-text-primary);
 }
 
