@@ -18,7 +18,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .Chains {
   background: var(--gradient-primary);
-  color: #fff;
+  color: var(--color-bg-primary);
   padding: 0 76px 0 16px;
   height: 40px;
   min-width: 1350px;
@@ -42,7 +42,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 .Chains-chain {
   top: 4px;
   padding: 0 12px;
-  color: #fff;
+  color: var(--color-bg-primary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +79,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   margin: 0;
   height: 28px;
   width: 28px;
-  color: #fff;
+  color: var(--color-bg-primary);
 }
 
 .Chains-node-count {
@@ -87,7 +87,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   display: inline-block;
   border-radius: 20px;
   background: var(--color-text-primary);
-  color: var(--color-quantus-orange);
+  color: var(--color-bg-primary);
   font-size: 0.9em;
   margin-left: 0.5em;
   padding: 0.3em 0.5em;
