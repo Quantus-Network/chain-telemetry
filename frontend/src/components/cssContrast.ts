@@ -100,6 +100,53 @@ export function gradientStops(gradient: string): string[] {
   return colors;
 }
 
+type Rgba = { r: number; g: number; b: number; a: number };
+
+export function overlayOn(foreground: string, background: string): string {
+  const fg = parseRgba(foreground);
+  const bg = parseRgba(background);
+  if (bg.a < 1) {
+    throw new Error(`Background must be opaque: ${background}`);
+  }
+  if (fg.a >= 1) {
+    return rgbaToHex(fg);
+  }
+  const a = fg.a;
+  return rgbaToHex({
+    r: fg.r * a + bg.r * (1 - a),
+    g: fg.g * a + bg.g * (1 - a),
+    b: fg.b * a + bg.b * (1 - a),
+    a: 1,
+  });
+}
+
+function parseRgba(color: string): Rgba {
+  const trimmed = color.trim();
+  const rgb = trimmed.match(
+    /^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/i
+  );
+  if (rgb) {
+    return {
+      r: Number(rgb[1]),
+      g: Number(rgb[2]),
+      b: Number(rgb[3]),
+      a: rgb[4] === undefined ? 1 : Number(rgb[4]),
+    };
+  }
+  const hex = normalizeHex(trimmed);
+  return {
+    r: parseInt(hex.slice(1, 3), 16),
+    g: parseInt(hex.slice(3, 5), 16),
+    b: parseInt(hex.slice(5, 7), 16),
+    a: 1,
+  };
+}
+
+function rgbaToHex(color: Rgba): string {
+  const ch = (n: number) => Math.round(n).toString(16).padStart(2, '0');
+  return `#${ch(color.r)}${ch(color.g)}${ch(color.b)}`;
+}
+
 function normalizeHex(color: string): string {
   const named: Record<string, string> = {
     white: '#ffffff',

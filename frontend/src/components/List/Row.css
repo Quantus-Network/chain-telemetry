@@ -40,7 +40,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 }
 
 .Row-stale {
-  color: rgba(255, 255, 255, 0.3);
+  color: #888888;
 }
 
 .Row:hover {
