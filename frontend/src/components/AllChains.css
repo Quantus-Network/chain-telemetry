@@ -131,11 +131,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .AllChains-chain-selected {
   background: var(--gradient-primary);
-  color: white;
+  color: var(--color-bg-primary);
   border-color: transparent;
 }
 
 .AllChains-chain-selected .AllChains-node-count {
   background: white;
-  color: var(--color-quantus-orange-dark);
+  color: var(--color-bg-primary);
 }

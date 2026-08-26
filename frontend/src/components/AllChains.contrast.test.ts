@@ -28,18 +28,24 @@ import {
 const MIN_NORMAL_TEXT_CONTRAST = 4.5;
 
 const indexCss = fs.readFileSync(path.join(__dirname, '../index.css'), 'utf8');
-const chainsCss = fs.readFileSync(path.join(__dirname, './Chains.css'), 'utf8');
+const allChainsCss = fs.readFileSync(
+  path.join(__dirname, './AllChains.css'),
+  'utf8'
+);
 
 const cssVars = parseCustomProperties(indexCss);
 
-describe('Chains nav contrast', () => {
-  it('gives unselected chain labels at least 4.5:1 on every primary gradient stop', () => {
+describe('AllChains selected contrast', () => {
+  it('gives selected chain labels at least 4.5:1 on every primary gradient stop', () => {
     const label = resolveColor(
-      declaration(chainsCss, '.Chains-chain', 'color'),
+      declaration(allChainsCss, '.AllChains-chain-selected', 'color'),
       cssVars
     );
     const stops = gradientStops(
-      resolveValue('var(--gradient-primary)', cssVars)
+      resolveValue(
+        declaration(allChainsCss, '.AllChains-chain-selected', 'background'),
+        cssVars
+      )
     );
 
     expect(stops.length).toBeGreaterThanOrEqual(3);
@@ -50,58 +56,26 @@ describe('Chains nav contrast', () => {
     }
   });
 
-  it('gives the unselected node-count badge at least 4.5:1', () => {
+  it('gives the selected node-count badge at least 4.5:1', () => {
     const foreground = resolveColor(
-      declaration(chainsCss, '.Chains-node-count', 'color'),
+      declaration(
+        allChainsCss,
+        '.AllChains-chain-selected .AllChains-node-count',
+        'color'
+      ),
       cssVars
     );
     const background = resolveColor(
-      declaration(chainsCss, '.Chains-node-count', 'background'),
+      declaration(
+        allChainsCss,
+        '.AllChains-chain-selected .AllChains-node-count',
+        'background'
+      ),
       cssVars
     );
 
     expect(contrastRatio(foreground, background)).toBeGreaterThanOrEqual(
       MIN_NORMAL_TEXT_CONTRAST
     );
-  });
-
-  it('keeps selected chain labels at least 4.5:1 on the dark tab', () => {
-    const label = resolveColor(
-      declaration(chainsCss, '.Chains-chain.Chains-chain-selected', 'color'),
-      cssVars
-    );
-    const tab = resolveColor('var(--color-bg-primary)', cssVars);
-
-    expect(contrastRatio(label, tab)).toBeGreaterThanOrEqual(
-      MIN_NORMAL_TEXT_CONTRAST
-    );
-  });
-
-  it('keeps selected node-count text at least 4.5:1 on every secondary gradient stop', () => {
-    const foreground = resolveColor(
-      declaration(
-        chainsCss,
-        '.Chains-chain.Chains-chain-selected .Chains-node-count',
-        'color'
-      ),
-      cssVars
-    );
-    const stops = gradientStops(
-      resolveValue(
-        declaration(
-          chainsCss,
-          '.Chains-chain.Chains-chain-selected .Chains-node-count',
-          'background'
-        ),
-        cssVars
-      )
-    );
-
-    expect(stops.length).toBeGreaterThanOrEqual(2);
-    for (const stop of stops) {
-      expect(contrastRatio(foreground, stop)).toBeGreaterThanOrEqual(
-        MIN_NORMAL_TEXT_CONTRAST
-      );
-    }
   });
 });
