@@ -1,24 +1,25 @@
 # Quantus Rebranding - Chain Telemetry Dashboard
 
 ## Overview
-This document outlines the rebranding changes made to transform the Substrate/Polkadot Telemetry dashboard into the Quantus Telemetry dashboard.
+This document outlines the rebranding changes made to transform the Substrate/Polkadot Telemetry dashboard into the Quantus Telemetry dashboard, updated to match the current Quantus brand identity from [quantus.com](https://quantus.com).
 
 ## Changes Made
 
 ### 1. Brand Colors & Theme
 **Color Palette:**
-- Primary Background: `#0c1014` (Quantus dark blue-black)
-- Primary Pink: `#ed4cce`
-- Primary Blue: `#0000ff`
-- Dark Blue: `#1f1fa3`
-- Yellow: `#ffe91f`
-- Text Primary: `#f4f6f9`
-- Text Secondary: `#d4d3e0`
+- Primary Background: `#0E0E0E` (Quantus near-black)
+- Surface: `#1A1A1A` (elevated panels, cards, tooltips)
+- Surface Elevated: `#252525` (secondary surfaces)
+- Primary Orange: `#FF6B35` (Quantus brand orange)
+- Light Orange: `#FF8C5A` (hover states, secondary accents)
+- Dark Orange: `#CC5529` (deep accents, gradient anchors)
+- Text Primary: `#F5F5F5`
+- Text Secondary: `#999999`
 
 **Gradients:**
-- Primary Gradient: Pink → Blue → Dark Blue
-- Secondary Gradient: Pink → Yellow
-- Accent Gradient: Blue → Pink → Yellow
+- Primary Gradient: Dark Orange → Orange → Light Orange
+- Secondary Gradient: Orange → Light Orange
+- Accent Gradient: Dark Orange → Orange → Light Orange (wider angle)
 
 ### 2. Typography
 - Font Family: **Prompt** (from Google Fonts)
@@ -28,30 +29,31 @@ This document outlines the rebranding changes made to transform the Substrate/Po
 ### 3. Component Updates
 
 #### Core Files
-- `frontend/src/index.css` - Added Quantus CSS variables and Google Fonts import
+- `frontend/src/index.css` - Quantus CSS variables (orange palette) and Google Fonts import
 - `frontend/src/App.css` - Updated font family and colors
-- `frontend/assets/index.html` - Changed title to "Quantus Telemetry", updated theme-color
+- `frontend/assets/index.html` - Title "Quantus Telemetry", theme-color `#0E0E0E`
 
 #### Components Updated
-- **Chains.css** - Updated top bar with Quantus gradient, modernized tab styles
-- **Header.css** - Applied accent gradient background, added logo section
-- **Header.tsx** - Added Quantus logo and branding text
-- **Chain.css** - Updated content background
-- **Tab.css** - Applied Quantus gradients to tabs, added hover effects
-- **AllChains.css** - Glassmorphism effect, Quantus colors, backdrop blur
-- **Stats.css** - Dark theme cards with transparency
-- **Tile.css** - Updated accent colors
-- **Filter.css** - Glassmorphism popup with Quantus styling
-- **List/Row.css** - Updated row colors and hover states
-- **List/THead.css** - Dark headers with Quantus accents
-- **Map/Location.css** - Updated location pins with Quantus pink glow
-- **Settings/Setting.css** - Modernized toggle switches with gradients
-- **Tooltip.css** - Glassmorphism tooltips with backdrop blur
-- **OfflineIndicator.css** - Updated with gradients
+- **Chains.css** - Top bar with Quantus orange gradient, modernized tab styles
+- **Header.css** - Subtle dark-to-orange translucent gradient background, updated logo container
+- **Header.tsx** - New Quantus logo (`quantus-logo-n.svg`) and "Quantus Telemetry" branding text
+- **Chain.css** - Content background using `--color-bg-primary`
+- **Tab.css** - Orange gradient active states, orange-tinted hover
+- **AllChains.css** - Dark glassmorphism panels, orange hover/selection states
+- **Stats.css** - Dark surface cards with subtle borders
+- **Tile.css** - Orange accent icon borders
+- **Filter.css** - Dark glassmorphism popup
+- **List/Row.css** - Orange pinned/hover highlights
+- **List/THead.css** - Dark headers with orange sort indicators
+- **Map/Location.css** - Orange synced-node glow, orange ping animation
+- **Settings/Setting.css** - Toggle switches with orange gradient
+- **Tooltip.css** - Dark glassmorphism tooltips with backdrop blur
+- **OfflineIndicator.css** - Status colors (functional red/green preserved)
 
 ### 4. Assets
-- Copied Quantus logo: `frontend/assets/quantus-logo.svg`
-- Updated favicon: `frontend/assets/favicon.svg` (using Quantus logo)
+- Logo (header): `frontend/assets/quantus-logo-n.svg` (solid orange `#FF6B35` mark on dark `#0E0E0E`, matches quantus.com)
+- Legacy logo: `frontend/assets/quantus-logo.svg` (Q mark with orange gradients)
+- Favicon source: `frontend/assets/quantus-favicon.svg` (or `favicon.svg` if present); build emits `/quantus-favicon.svg` (linked from HTML) and `/favicon.svg` as a copy for defaults and old links.
 
 ### 5. Package Information
 - Updated `frontend/package.json`:
@@ -65,26 +67,26 @@ This document outlines the rebranding changes made to transform the Substrate/Po
 ## Design Features
 
 ### Modern UI Elements
-1. **Glassmorphism** - Semi-transparent backgrounds with backdrop blur
+1. **Glassmorphism** - Semi-transparent dark surfaces (`rgba(26, 26, 26, 0.97)`) with backdrop blur
 2. **Smooth Transitions** - 0.2s ease transitions on interactive elements
-3. **Enhanced Shadows** - Deeper, more dramatic shadows
-4. **Rounded Corners** - Increased border radius (4px → 6-8px)
-5. **Gradient Accents** - Strategic use of Quantus gradients throughout
-6. **Hover States** - Pink glow effects on hover
-7. **Visual Hierarchy** - Better contrast and spacing
+3. **Enhanced Shadows** - Deep shadows on dark surfaces
+4. **Rounded Corners** - 6-8px border radius on panels and cards
+5. **Orange Accents** - Strategic use of Quantus orange throughout
+6. **Hover States** - Orange glow effects on hover
+7. **Visual Hierarchy** - High contrast text on near-black backgrounds
 
 ### Branding Integration
 - Logo displayed prominently in header with glassmorphic container
 - "Quantus Telemetry" text next to logo
-- Consistent color scheme across all components
-- Gradient overlays on important UI elements
-- Signature Quantus pink used for active states and highlights
+- Consistent orange-on-dark color scheme across all components
+- Orange gradient overlays on active/sorted UI elements
+- Signature Quantus orange (`#FF6B35`) for active states and highlights
 
 ## Technical Improvements
 - CSS Custom Properties (CSS Variables) for easy theme management
 - Modern CSS features (backdrop-filter, gradients)
 - Consistent spacing and sizing
-- Better accessibility with improved contrast ratios
+- Neutral dark surfaces replacing the old blue-tinted grays
 
 ## Preserved Functionality
 All original functionality of the Substrate Telemetry dashboard has been preserved:
@@ -96,13 +98,11 @@ All original functionality of the Substrate Telemetry dashboard has been preserv
 - Sorting
 - Real-time updates
 
-## Next Steps (Optional)
-- Add Quantus-specific analytics or metrics
-- Integrate with Quantus backend services
-- Add custom Quantus network chains
-- Implement Quantus-specific features
+## Brand Evolution
+The visual identity was updated from the original pink/blue/yellow multi-color palette to a clean, minimal **orange-on-black** scheme aligned with the current Quantus brand at [quantus.com](https://quantus.com):
+- Old: Pink (`#ed4cce`) + Blue (`#0000ff`) + Yellow (`#ffe91f`) on dark blue-black (`#0c1014`)
+- New: Orange (`#FF6B35`) on near-black (`#0E0E0E`) -- cleaner, more focused identity
 
 ## Credits
 Original Substrate Telemetry by Parity Technologies
 Quantus Rebranding by Quantus Team
-

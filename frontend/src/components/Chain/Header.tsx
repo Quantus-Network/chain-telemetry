@@ -28,7 +28,7 @@ import listIcon from '../../icons/list-alt-regular.svg';
 import worldIcon from '../../icons/location.svg';
 import settingsIcon from '../../icons/settings.svg';
 import statsIcon from '../../icons/graph.svg';
-import quantusLogo from '../../../assets/quantus-logo.svg';
+import quantusLogo from '../../../assets/quantus-logo-n.svg';
 
 import './Header.css';
 

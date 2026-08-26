@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 .AllChains-overlay {
   position: fixed;
   z-index: 19;
-  background: rgba(12, 16, 20, 0.75);
+  background: rgba(14, 14, 14, 0.75);
   backdrop-filter: blur(8px);
   left: 0;
   right: 0;
@@ -36,9 +36,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   border-radius: 8px;
   width: 600px;
   overflow: auto;
-  background: rgba(61, 60, 68, 0.95);
+  background: rgba(26, 26, 26, 0.97);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-primary);
   display: flex;
   flex-direction: column;
 }
@@ -48,7 +49,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   display: flex;
   align-items: center;
   padding: 0.5em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .AllChains-controls input {
@@ -59,6 +60,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   min-width: 100px;
   background: rgba(255, 255, 255, 0.05);
   color: var(--color-text-primary);
+}
+
+.AllChains-controls input::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 1;
 }
 
 .AllChains-controls-sortby {
@@ -104,9 +110,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   transition: all 0.2s ease;
 }
 
-.AllChains-chain:hover {
-  background: rgba(237, 76, 206, 0.2);
-  border-color: rgba(237, 76, 206, 0.3);
+.AllChains-chain:hover:not(.AllChains-chain-selected) {
+  background: rgba(255, 107, 53, 0.15);
+  border-color: rgba(255, 107, 53, 0.25);
 }
 
 .AllChains-chain-highlighted-text {
@@ -131,11 +137,18 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .AllChains-chain-selected {
   background: var(--gradient-primary);
-  color: white;
+  color: var(--color-bg-primary);
   border-color: transparent;
+}
+
+.AllChains-chain-selected .AllChains-chain-highlighted-text {
+  background: none;
+  -webkit-text-fill-color: var(--color-bg-primary);
+  color: var(--color-bg-primary);
+  font-weight: 700;
 }
 
 .AllChains-chain-selected .AllChains-node-count {
   background: white;
-  color: var(--color-quantus-blue);
+  color: var(--color-bg-primary);
 }

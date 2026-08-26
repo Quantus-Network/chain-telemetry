@@ -54,12 +54,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .Location-synced {
   z-index: 3;
-  border-color: var(--color-quantus-pink);
-  box-shadow: 0 0 8px var(--color-quantus-pink);
+  border-color: var(--color-quantus-orange);
+  box-shadow: 0 0 8px var(--color-quantus-orange);
 }
 
 .Location-synced .Location-ping {
-  border: 1px solid var(--color-quantus-pink);
+  border: 1px solid var(--color-quantus-orange);
   border-radius: 30px;
   display: block;
   animation: ping 1s forwards;
@@ -75,9 +75,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   min-width: 335px;
   position: absolute;
   font-family: 'Prompt', monospace, sans-serif;
-  background: rgba(61, 60, 68, 0.95);
+  background: rgba(26, 26, 26, 0.97);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   color: var(--color-text-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -126,7 +126,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
     width: 6px;
     height: 6px;
     border-width: 1px;
-    border-color: rgba(237, 76, 206, 1);
+    border-color: rgba(255, 107, 53, 1);
   }
 
   to {
@@ -135,7 +135,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
     width: 40px;
     height: 40px;
     border-width: 1px;
-    border-color: rgba(237, 76, 206, 0);
+    border-color: rgba(255, 107, 53, 0);
   }
 }
 
