@@ -14,9 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-const HIDDEN_CHAIN_LABELS = new Set(['dirac', 'heisenberg']);
+const HIDDEN_CHAIN_LABELS = ['dirac', 'heisenberg'];
 
 /** Chain names that must not appear in the dashboard. */
 export function isHiddenChain(label: string): boolean {
-  return HIDDEN_CHAIN_LABELS.has(label.toLowerCase());
+  const normalized = label.toLowerCase();
+  return HIDDEN_CHAIN_LABELS.some((name) => normalized.includes(name));
 }

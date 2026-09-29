@@ -39,6 +39,12 @@ describe('isHiddenChain', () => {
     }
   });
 
+  it('hides chain labels that contain Dirac or Heisenberg', () => {
+    expect(isHiddenChain('Quantus Dirac Testnet')).toBe(true);
+    expect(isHiddenChain('quantus dirac testnet')).toBe(true);
+    expect(isHiddenChain('Quantus Heisenberg Testnet')).toBe(true);
+  });
+
   it('keeps other chain labels visible', () => {
     expect(isHiddenChain('Quantus')).toBe(false);
     expect(isHiddenChain('Planck')).toBe(false);
