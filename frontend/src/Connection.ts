@@ -19,6 +19,7 @@ import { State, Update, Node, ChainData, PINNED_CHAINS } from './state';
 import { PersistentSet } from './persist';
 import { getHashData, setHashData } from './utils';
 import { ACTIONS } from './common/feed';
+import { isHiddenChain } from './hiddenChains';
 import {
   Column,
   LocationColumn,
@@ -312,6 +313,19 @@ export class Connection {
 
         case ACTIONS.AddedChain: {
           const [label, genesisHash, nodeCount] = message.payload;
+
+          if (isHiddenChain(label)) {
+            if (chains.delete(genesisHash)) {
+              if (this.appState.subscribed === genesisHash) {
+                nodes.clear();
+                this.appUpdate({ subscribed: null, nodes, chains });
+              } else {
+                this.appUpdate({ chains });
+              }
+            }
+            break;
+          }
+
           const chain = chains.get(genesisHash);
 
           if (chain) {

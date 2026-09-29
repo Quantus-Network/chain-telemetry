@@ -101,6 +101,13 @@ pub struct RemovedNode {
     pub new_chain_label: Box<str>,
 }
 
+/// Networks that must not appear in telemetry. Compared to the chain name
+/// nodes report, ignoring case.
+fn is_hidden_chain(chain: &str) -> bool {
+    let chain = chain.to_ascii_lowercase();
+    chain == "dirac" || chain == "heisenberg"
+}
+
 impl State {
     pub fn new<T: IntoIterator<Item = String>>(denylist: T, max_third_party_nodes: usize) -> State {
         State {
@@ -133,7 +140,7 @@ impl State {
         genesis_hash: BlockHash,
         node_details: NodeDetails,
     ) -> AddNodeResult<'_> {
-        if self.denylist.contains(&*node_details.chain) {
+        if self.denylist.contains(&*node_details.chain) || is_hidden_chain(&node_details.chain) {
             return AddNodeResult::ChainOnDenyList;
         }
 
@@ -295,6 +302,24 @@ mod test {
             sysinfo: None,
             ip: None,
         }
+    }
+
+    #[test]
+    fn dirac_and_heisenberg_nodes_are_rejected() {
+        let mut state = State::new(None, 1000);
+        let genesis = BlockHash::from_low_u64_be(1);
+
+        for name in ["Dirac", "dirac", "HEISENBERG", "Heisenberg"] {
+            match state.add_node(genesis, node("A", name)) {
+                AddNodeResult::ChainOnDenyList => {}
+                AddNodeResult::ChainOverQuota => panic!("{name} was over quota"),
+                AddNodeResult::NodeAddedToChain(_) => {
+                    panic!("{name} was added")
+                }
+            }
+        }
+
+        assert!(state.iter_chains().next().is_none());
     }
 
     #[test]
