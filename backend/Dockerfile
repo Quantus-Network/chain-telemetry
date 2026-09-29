@@ -19,9 +19,13 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app/target/$PROFILE/telemetry_shard /usr/local/bin
 COPY --from=builder /app/target/$PROFILE/telemetry_core /usr/local/bin
 
+# Bullseye LTS ended 2026-08-31. The security index still names
+# openssl 1.1.1w-0+deb11u8, but that .deb was removed from the mirror.
+# Install the copy that remains in the main archive (1.1.1w-0+deb11u1).
 RUN useradd -m -u 1000 -U telemetry && \
+    sed -i '/debian-security/d' /etc/apt/sources.list && \
     apt-get -y update && \
-    apt-get -y install openssl && \
+    apt-get -y install --no-install-recommends openssl && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/
