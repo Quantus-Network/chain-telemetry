@@ -18,5 +18,5 @@ const HIDDEN_CHAIN_LABELS = new Set(['dirac', 'heisenberg']);
 
 /** Chain names that must not appear in the dashboard. */
 export function isHiddenChain(label: string): boolean {
-  return HIDDEN_CHAIN_LABELS.has(label.toLocaleLowerCase());
+  return HIDDEN_CHAIN_LABELS.has(label.toLowerCase());
 }

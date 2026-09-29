@@ -20,8 +20,23 @@ describe('isHiddenChain', () => {
   it('hides Dirac and Heisenberg regardless of case', () => {
     expect(isHiddenChain('Dirac')).toBe(true);
     expect(isHiddenChain('dirac')).toBe(true);
+    expect(isHiddenChain('DIRAC')).toBe(true);
     expect(isHiddenChain('HEISENBERG')).toBe(true);
     expect(isHiddenChain('Heisenberg')).toBe(true);
+  });
+
+  it('hides uppercase DIRAC and HEISENBERG when the locale is Turkish', () => {
+    const toLocaleLowerCase = String.prototype.toLocaleLowerCase;
+    String.prototype.toLocaleLowerCase = function (this: string) {
+      return toLocaleLowerCase.call(this, 'tr');
+    };
+
+    try {
+      expect(isHiddenChain('DIRAC')).toBe(true);
+      expect(isHiddenChain('HEISENBERG')).toBe(true);
+    } finally {
+      String.prototype.toLocaleLowerCase = toLocaleLowerCase;
+    }
   });
 
   it('keeps other chain labels visible', () => {
