@@ -105,7 +105,7 @@ pub struct RemovedNode {
 /// nodes report, ignoring case.
 fn is_hidden_chain(chain: &str) -> bool {
     let chain = chain.to_ascii_lowercase();
-    chain == "dirac" || chain == "heisenberg"
+    chain.contains("dirac") || chain.contains("heisenberg")
 }
 
 impl State {
@@ -309,7 +309,14 @@ mod test {
         let mut state = State::new(None, 1000);
         let genesis = BlockHash::from_low_u64_be(1);
 
-        for name in ["Dirac", "dirac", "HEISENBERG", "Heisenberg"] {
+        for name in [
+            "Dirac",
+            "dirac",
+            "HEISENBERG",
+            "Heisenberg",
+            "Quantus Dirac Testnet",
+            "quantus heisenberg testnet",
+        ] {
             match state.add_node(genesis, node("A", name)) {
                 AddNodeResult::ChainOnDenyList => {}
                 AddNodeResult::ChainOverQuota => panic!("{name} was over quota"),
