@@ -192,39 +192,11 @@ You should now see your node showing up in your local [telemetry frontend](http:
 
 ![image](doc/screenshot01.png)
 
-## Deployment
+## Images
 
-This section covers the internal deployment of Substrate Telemetry to our staging and live environments.
+Pushing a `v*` tag (for example `v1.0.0`) publishes two linux/amd64 images:
 
-### Deployment to staging
+- `ghcr.io/quantus-network/chain-telemetry-frontend`
+- `ghcr.io/quantus-network/chain-telemetry-backend`
 
-Every time new code is merged to `master`, a new version of telemetry will be automatically built and deployed to our staging environment, so there is nothing that you need to do. Roughly what will happen is:
-
-- An image tag will be generated that looks like `master-$CI_COMMIT_SHORT_SHA`, for example `master-224b1fae`.
-- Docker images for the frontend and backend will be pushed to the docker repo (see https://hub.docker.com/r/parity/substrate-telemetry-backend/tags?page=1&ordering=last_updated and https://hub.docker.com/r/parity/substrate-telemetry-frontend/tags?page=1&ordering=last_updated).
-- A deployment to the staging environment will be performed using these images. Go to https://github.com/paritytech/substrate-telemetry/actions to inspect the progress of such deployments.
-
-### Deployment to live
-
-Once we're happy with things in staging, we can do a deployment to live as follows:
-
-1. Ensure that the PRs you'd like to deploy are merged to master.
-2. Tag the commit on `master` that you'd like to deploy with the form `v1.0-a1b2c3d`.
-   - The version number (`1.0` here) should just be incremented from whatever the latest version found using `git tag` is. We don't use semantic versioning or anything like that; this is just a dumb "increment version number" approach so that we can see clearly what we've deployed to live and in what order.
-   - The suffix is a short git commit hash (which can be generated with `git rev-parse --short HEAD`), just so that it's really easy to relate the built docker images back to the corresponding code.
-3. Pushing the tag (eg `git push origin v1.0-a1b2c3d`) will kick off the deployment process, which in this case will also lead to new docker images being built. You can view the progress at https://github.com/paritytech/substrate-telemetry/actions.
-
-> [!WARNING]  
-> After the tag is pushed the deploy will be done to both environments (staging and production) automatically.
-
-4. Once a deployment to staging has been successful, run whatever tests you need against the staging deployment to convince yourself that you're happy with it.
-5. Confirm that things are working once the deployment has finished by visiting https://telemetry.polkadot.io/.
-
-### Rolling back to a previous deployment
-
-If something goes wrong running the above, we can roll back the deployment to live as follows.
-
-1. Decide what image tag you'd like to roll back to. Push the tag to the commit you want to revert to.
-2. Navigate to https://github.com/paritytech/substrate-telemetry/actions and check that the pipeline is successful.
-3. Confirm that things are working once the deployment has finished by visiting https://telemetry.polkadot.io/.
-4. In case of issues contact devops team.
+The workflow prints each image's digest pin (`vX.Y.Z@sha256:…`). Production runs those pins from the IaC repo; this repository does not deploy the host. After the first publish, set both GHCR packages to public so the droplet can pull them without a registry token.
