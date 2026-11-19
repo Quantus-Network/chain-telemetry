@@ -10,7 +10,7 @@ COPY . .
 RUN npm install && npm run build
 
 #### OUTPUT IMAGE ####
-FROM docker.io/nginx:1.30.7-alpine-slim@sha256:e00f38ab6677f5a8d861a9d9430f97c491a44f98072aa349915e4abb7e7f432b
+FROM docker.io/nginx:1.31.9-alpine@sha256:90b6bd2aec278b16b98221d64deb1d6d35d164567f507ab0716e6053878315aa
 LABEL maintainer="Chevdor <chevdor@gmail.com>"
 LABEL description="Substrate Telemetry Frontend"
 
